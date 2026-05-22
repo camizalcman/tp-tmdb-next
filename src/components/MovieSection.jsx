@@ -26,6 +26,7 @@ const MovieSection = () => {
 
     return (
         <div>
+            
         </div>
     )
 }
