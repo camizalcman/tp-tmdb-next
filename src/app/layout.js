@@ -1,3 +1,4 @@
+import { AppContextProvider } from "@/contexts/AppContext";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -26,9 +27,11 @@ export default function RootLayout({ children }) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body>
-        <Nav />
-          {children}
-        <Footer />
+        <AppContextProvider>
+          <Nav />
+            {children}
+          <Footer />
+        </AppContextProvider>
       </body>
     </html>
   );
