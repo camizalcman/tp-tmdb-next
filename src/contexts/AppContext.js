@@ -4,7 +4,7 @@ import { useState, useContext, createContext } from "react";
 const AppContext = createContext(); 
 
 //va a englobar toda la aplicacion
-export const AppContextProvider = (children) => {
+export const AppContextProvider = ({children}) => {
 
     const [favoritos, setFavoritos] = useState([])
 
