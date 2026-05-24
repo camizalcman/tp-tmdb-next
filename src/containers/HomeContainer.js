@@ -8,7 +8,7 @@ const HomeContainer = () => {
     return (
         <div>
             <Hero></Hero>
-            <main className='bg-[#000212] text-white'>
+            <main className='bg-[#000105] text-white flex flex-col justify-center items-center'>
                 <MovieSection title="En tendencia" sectionId="tendencia" endpoint={endpoints.trendingMovies} />
                 <MovieSection title="Populares" sectionId="populares" endpoint={endpoints.popularMovies} />
                 <MovieSection title="Mejor puntuadas" sectionId="mejorPuntuadas" endpoint={endpoints.topRatedMovies} />

@@ -3,7 +3,7 @@ import Image from 'next/image';
 const Nav = () => {
 
     return (
-        <div className='bg-black pt-4 pl-4 flex justify-between'>
+        <div className='bg-black py-3 px-4 flex justify-between items-center fixed top-0 left-0 w-full z-50'>
             
             <div className='text-sm'>
                 <Image src={'/img/logo.png'} width={100} height={100} alt='logo Cine' className="w-12 h-auto"/>

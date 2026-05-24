@@ -2,6 +2,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import MovieCard from "./MovieCard";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+
 
 const MovieSection = ({ title, endpoint, sectionId }) => {
     
@@ -30,13 +32,34 @@ const MovieSection = ({ title, endpoint, sectionId }) => {
         handleGetItems();
     }, []);
 
+    const scroll = (dir) => {
+    const container = document.getElementById(`carousel-${sectionId}`);
+
+    const amount = 400;
+
+    container.scrollBy({
+        left: dir === 1 ? amount : -amount,
+        behavior: "smooth",
+    });
+    };
+
     return (
-        <div className="pt-12 px-12 w-full">
+        <div className="pt-12 w-[90%]">
             <section id={sectionId}>
-                <h2 className="font-medium text-[1em] sm:text-[1.6em] md:text-[1.8em] font-[Oswald]">{title}</h2>
-                <div className='flex pt-4 flex-wrap justify-between'>
+                <div className="flex justify-between">
+                    <h2 className="font-medium text-[1em] sm:text-[1.6em] md:text-[1.8em] font-[Oswald]">{title}</h2>
+                    
+                    <div className="flex gap-2 justify-end">
+                        <button onClick={() => scroll(-1)}><ChevronLeft /></button>
+                        <button onClick={() => scroll(1)}><ChevronRight /></button>
+                    </div>
+                </div>
+
+                <div id={`carousel-${sectionId}`} className='flex gap-6 overflow-x-auto scroll-smooth pt-4 justify-between [&::-webkit-scrollbar]:hidden'>
                     {items.map((movie, index) => (
-                        <MovieCard key={index} movie={movie} />
+                        <div key={index} className="flex-shrink-0 w-[180px]">
+                            <MovieCard key={index} movie={movie} />
+                        </div>
                     ))}
                 </div>
             </section>

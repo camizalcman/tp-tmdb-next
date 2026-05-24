@@ -1,5 +1,5 @@
 
-const RecipeContainer = ({ id }) => {
+const DetalleContainer = ({ id }) => {
   
   return (
     <div>
@@ -8,4 +8,4 @@ const RecipeContainer = ({ id }) => {
   );
 };
 
-export default RecipeContainer;
+export default DetalleContainer;
