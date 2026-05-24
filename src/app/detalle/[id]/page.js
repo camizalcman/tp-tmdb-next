@@ -1,5 +1,10 @@
 import DetalleContainer from '@/containers/DetalleContainer'
 
-export default function Home(){
-  return <DetalleContainer />
+const page = async ({params}) => {
+  const { id } = await params;
+  return (
+    <DetalleContainer id={id} />
+  )
 }
+
+export default page

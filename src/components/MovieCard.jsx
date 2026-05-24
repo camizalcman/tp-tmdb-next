@@ -24,7 +24,7 @@ const MovieCard = ({ movie }) => {
             
             <div className="flex items-center gap-1">
                 <Calendar size={14} />
-                <p>{formatDate(movie.release_date)}</p>
+                <p>{movie.release_date.split('-').reverse().join('/')}</p>
             </div>
             
             <Link href={`/detalle/${movie.id}`}>
