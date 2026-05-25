@@ -5,7 +5,7 @@ const Footer = () => {
     return (
         <footer className='bg-[#000105] pt-24 pb-12 px-6'>
 
-            <div className='max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12'>
+            <div className='max-w-7xl mx-auto flex fflex-row justify-between items-start gap-12'>
 
                 
                 <div className='flex flex-col items-center'>
@@ -27,31 +27,31 @@ const Footer = () => {
                     <ul className='flex flex-col items-start gap-4 text-neutral-300 text-sm font-medium'>
                         
                         <li>
-                            <a href="#tendencia" className='hover:text-white transition-colors'>
+                            <a href="/#tendencia" className='hover:text-white transition-colors'>
                                 En tendencia
                             </a>
                         </li>
 
                         <li>
-                            <a href="#populares" className='hover:text-white transition-colors'>
+                            <a href="/#populares" className='hover:text-white transition-colors'>
                                 Populares
                             </a>
                         </li>
 
                         <li>
-                            <a href="#mejorPuntuadas" className='hover:text-white transition-colors'>
+                            <a href="/#mejorPuntuadas" className='hover:text-white transition-colors'>
                                 Mejor puntuadas
                             </a>
                         </li>
 
                         <li>
-                            <a href="#cartelera" className='hover:text-white transition-colors'>
+                            <a href="/#cartelera" className='hover:text-white transition-colors'>
                                 Cartelera
                             </a>
                         </li>
 
                         <li>
-                            <a href="#estrenos" className='hover:text-white transition-colors'>
+                            <a href="/#estrenos" className='hover:text-white transition-colors'>
                                 Estrenos
                             </a>
                         </li>

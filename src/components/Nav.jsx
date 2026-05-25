@@ -11,11 +11,11 @@ const Nav = () => {
 
             <nav>       
                 <ul className='flex gap-6 text-base font-medium sm:gap-8 text-white'>
-                    <li><a href="#tendencia">En tendencia</a></li>
-                    <li><a href="#populares">Populares</a></li>
-                    <li><a href="#mejorPuntuadas">Mejor puntuadas</a></li>
-                    <li><a href="#cartelera">Cartelera</a></li>
-                    <li><a href="#estrenos">Estrenos</a></li> 
+                    <li><a href="/#tendencia" className='text-white/80 transition-all duration-100 hover:text-white hover:font-semibold'>En tendencia</a></li>
+                    <li><a href="/#populares" className='text-white/80 transition-all duration-100 hover:text-white hover:font-semibold'>Populares</a></li>
+                    <li><a href="/#mejorPuntuadas" className='text-white/80 transition-all duration-100 hover:text-white hover:font-semibold'>Mejor puntuadas</a></li>
+                    <li><a href="/#cartelera" className='text-white/80 transition-all duration-100 hover:text-white hover:font-semibold'>Cartelera</a></li>
+                    <li><a href="/#estrenos" className='text-white/80 transition-all duration-100 hover:text-white hover:font-semibold'>Estrenos</a></li> 
                 </ul>
             </nav>
 

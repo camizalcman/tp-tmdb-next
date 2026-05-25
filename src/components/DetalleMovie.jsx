@@ -1,12 +1,14 @@
 
 import Image from 'next/image';
-import {   Calendar, Star, Users, Flame, Languages } from "lucide-react";
+import Link from 'next/link';
+import {   Calendar, Star, Users, Flame, Languages, ChevronLeft } from "lucide-react";
 
 const DetalleMovie = ({ item }) => {
     console.log(item);
     return (
         <section className='w-full min-h-screen bg-[#05081f] text-white pt-28 pb-20 px-6 relative overflow-hidden'>
-
+            <Link href="/" className="relative z-20 inline-flex items-center gap-2 text-white/80 hover:text-white transition-all duration-300">
+                <ChevronLeft size={18} />Volver</Link>
             
             <div className='absolute inset-0 opacity-20'>
 
@@ -23,17 +25,17 @@ const DetalleMovie = ({ item }) => {
             <div className='absolute inset-0 bg-gradient-to-b from-[rgba(5,8,31,0.4)] via-[rgba(5,8,31,0.5)] to-[#000105]' />
 
             
-            <div className='relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row gap-12'>
+            <div className='relative z-10 max-w-7xl mx-auto flex flex-col sm:flex-row gap-12'>
 
                
-                <div className='relative w-full max-w-[420px]'>
+                <div className='relative w-full md:max-w-[420px]'>
 
                     <Image
                         src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
                         alt={item.title}
                         width={500}
                         height={750}
-                        className='w-full max-w-[420px] h-auto rounded-2xl shadow-2xl object-cover'
+                        className='w-full md:max-w-[420px] sm:h-auto rounded-2xl shadow-2xl object-cover'
                     />
 
                     <div className="absolute top-3 right-3 flex items-center gap-1 bg-black/70 text-white text-xs px-2 py-1 rounded-full">
@@ -48,7 +50,7 @@ const DetalleMovie = ({ item }) => {
                     
                     <div className='flex flex-col gap-4'>
 
-                        <h1 className='text-[2.5em] md:text-[4em] font-[Oswald] leading-none'>
+                        <h1 className='text-[2.6em] sm:text-[3em] md:text-[3.8em] font-[Oswald] leading-none'>
                             {item.title}
                         </h1>
 

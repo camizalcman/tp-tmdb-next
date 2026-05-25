@@ -47,7 +47,7 @@ const MovieSection = ({ title, endpoint, sectionId }) => {
         <div className="pt-12 w-[90%]">
             <section id={sectionId}>
                 <div className="flex justify-between">
-                    <h2 className="font-medium text-[1em] sm:text-[1.6em] md:text-[1.8em] font-[Oswald]">{title}</h2>
+                    <h2 className="font-medium text-[1.4em] sm:text-[1.6em] md:text-[1.8em] font-[Oswald]">{title}</h2>
                     
                     <div className="flex gap-2 justify-end">
                         <button onClick={() => scroll(-1)}><ChevronLeft /></button>
@@ -57,7 +57,7 @@ const MovieSection = ({ title, endpoint, sectionId }) => {
 
                 <div id={`carousel-${sectionId}`} className='flex gap-6 overflow-x-auto scroll-smooth pt-4 justify-between [&::-webkit-scrollbar]:hidden'>
                     {items.map((movie, index) => (
-                        <div key={index} className="flex-shrink-0 w-[180px]">
+                        <div key={index} className="flex-shrink-0 w-[150px] sm:w-[170px] md:w-[180px]">
                             <MovieCard key={index} movie={movie} />
                         </div>
                     ))}
