@@ -8,6 +8,16 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 export default function FavoritosContainer() {
     const { favoritos } = useAppContext()
 
+    const scroll = (dir) => {
+    const container = document.getElementById('carousel-favoritos');
+
+    const amount = 400;
+
+    container.scrollBy({
+        left: dir === 1 ? amount : -amount,
+        behavior: "smooth",
+    });}
+
     return favoritos.length === 0 ? (
         <div>
             <main className="bg-[#000105] min-h-[70vh] flex flex-col items-center justify-center gap-2 text-white">
@@ -31,7 +41,7 @@ export default function FavoritosContainer() {
                         </div>
                     </div>
 
-                    <div className='flex gap-6 overflow-x-auto scroll-smooth pt-4 justify-start [&::-webkit-scrollbar]:hidden'>
+                    <div id="carousel-favoritos" className='flex gap-6 overflow-x-auto scroll-smooth pt-4 justify-start [&::-webkit-scrollbar]:hidden'>
                         {favoritos.map((movie, index) => (
                             <div key={index} className="flex-shrink-0 w-[150px] sm:w-[170px] md:w-[180px]">
                                 <MovieCard key={index} movie={movie} />
