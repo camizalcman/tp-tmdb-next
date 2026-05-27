@@ -1,10 +1,26 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import {   Calendar, Star, Users, Flame, Languages, ChevronLeft } from "lucide-react";
+import {   Calendar, Star, Users, Flame, Languages, ChevronLeft, Heart } from "lucide-react";
+import { useAppContext } from '@/contexts/AppContext'
 
 const DetalleMovie = ({ item }) => {
     console.log(item);
+
+    const { favoritos, handleAddFavorite, setFavoritos } = useAppContext()
+
+    //esFavorito es true o false
+    const esFavorito = favoritos.some(fav => fav.id === item.id)
+    
+    const handleFavorito = () => {
+        if (esFavorito) {
+            //si ya es favorito, lo saco del array
+            setFavoritos(favoritos.filter(fav => fav.id !== item.id))
+        } else {
+            //si no es favorito, lo agrego al array
+            handleAddFavorite(item)
+        }
+    }
     return (
         <section className='w-full min-h-screen bg-[#05081f] text-white pt-28 pb-20 px-6 relative overflow-hidden'>
             <Link href="/" className="relative z-20 inline-flex items-center gap-2 text-white/80 hover:text-white transition-all duration-300">
@@ -41,6 +57,17 @@ const DetalleMovie = ({ item }) => {
                     <div className="absolute top-3 right-3 flex items-center gap-1 bg-black/70 text-white text-xs px-2 py-1 rounded-full">
                         <Star size={14} className="text-yellow-400" fill="currentColor" />{item.vote_average?.toFixed(1)}
                     </div>
+
+                    <button
+                        onClick={handleFavorito}
+                        className="absolute top-3 left-3 z-20 p-1 rounded-full bg-black/50 hover:bg-black/70 transition-colors"
+                    >
+                        <Heart
+                            size={18}
+                            className={esFavorito ? "text-red-500" : "text-white"}
+                            fill={esFavorito ? "currentColor" : "none"}
+                        />
+                    </button>
 
                 </div>
 

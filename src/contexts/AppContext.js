@@ -19,7 +19,7 @@ export const AppContextProvider = ({children}) => {
     return (
         //va a exportar un componente que se llama app context y utiliza el metodo provider
         //value son las cosas que queres dejar publicas y exportar
-        <AppContext.Provider value={{ favoritos, setFavoritos }}>
+        <AppContext.Provider value={{ favoritos, setFavoritos, favoritosQty, handleAddFavorite}}>
             {children}
         </AppContext.Provider>
     )

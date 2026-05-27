@@ -34,7 +34,7 @@ const DetalleContainer = ({ id }) => {
           <h2>NOT FOUND</h2>
         </div>
         )}
-      {loading && <div className='w-full min-h-screen flex items-center justify-center'><p className='text-[1.5em] font-[Philosopher]'>
+      {loading && <div className='bg-[#000105] w-full min-h-screen flex items-center justify-center'><p className='text-[2em] font-[Oswald] text-white'>
                     Loading...</p></div>}
       {!loading && <DetalleMovie item={item}/>}
     </div>

@@ -1,8 +1,11 @@
 import Link from "next/link"
 import Image from "next/image"
-import { Calendar, Star, ChevronRight } from "lucide-react";
+import { Calendar, Star, ChevronRight, Heart } from "lucide-react";
+import { useAppContext } from '@/contexts/AppContext'
 
 const MovieCard = ({ movie }) => {
+    const { favoritos, handleAddFavorite, setFavoritos } = useAppContext()
+
     const imageUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
 
     const formatDate = (date) => {
@@ -10,6 +13,20 @@ const MovieCard = ({ movie }) => {
     const [y, m, d] = date.split("-");
     return `${d}-${m}-${y}`;
     };
+
+    //esFavorito es true o false
+    const esFavorito = favoritos.some(fav => fav.id === movie.id)
+    
+    const handleFavorito = () => {
+        if (esFavorito) {
+            //si ya es favorito, lo saco del array
+            setFavoritos(favoritos.filter(fav => fav.id !== movie.id))
+        } else {
+            //si no es favorito, lo agrego al array
+            handleAddFavorite(movie)
+        }
+    }
+
 
     return (
         <div className="group relative w-full cursor-pointer">
@@ -26,7 +43,18 @@ const MovieCard = ({ movie }) => {
                     <button className="absolute bottom-3 left-3 flex items-center gap-1 text-white cursor-pointer z-20">Ver más
                         <ChevronRight size={18}className="transition-transform duration-300 group-hover:translate-x-1"/>
                     </button>
-                </Link>    
+                </Link>
+
+                <button
+                    onClick={handleFavorito}
+                    className="absolute top-2 left-2 z-20 p-1 rounded-full bg-black/50 hover:bg-black/70 transition-colors"
+                >
+                    <Heart
+                        size={18}
+                        className={esFavorito ? "text-red-500" : "text-white"}
+                        fill={esFavorito ? "currentColor" : "none"}
+                    />
+                </button>    
             </div>
             
             <h3 className="mt-2 font-semibold text-base sm:text-base md:text-lg line-clamp-1">{movie.title}</h3>

@@ -1,10 +1,14 @@
 'use client'
 import Image from 'next/image';
 import { useState } from 'react';
+import { useAppContext } from '@/contexts/AppContext'
+import Link from 'next/link';
 
 const Nav = () => {
 
     const [menuOpen, setMenuOpen] = useState(false);
+    const { favoritosQty } = useAppContext()
+
 
     return (
         <div>
@@ -24,7 +28,14 @@ const Nav = () => {
                 </ul>
             </nav>
 
-            <div className='hidden md:block text-base font-medium text-white pr-4'>Favoritos</div>
+            <Link href="/favoritos" className="hidden md:block text-base font-medium text-white pr-4 relative">
+                Favoritos
+                {favoritosQty() > 0 && (
+                    <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                        {favoritosQty()}
+                    </span>
+                )}
+            </Link>
 
             <button
                 onClick={() => setMenuOpen(!menuOpen)}
@@ -89,8 +100,15 @@ const Nav = () => {
                     </li>
 
                     <li className='pt-6 border-t border-white/10'>
-                        <a href="#">Favoritos</a>
+                        <Link href="/favoritos" className='relative'>Favoritos
+                        {favoritosQty() > 0 && (
+                            <span className="absolute -top-2 -right-6 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                                {favoritosQty()}
+                            </span>
+                        )}
+                        </Link>
                     </li>
+
 
                 </ul>
             </aside>
