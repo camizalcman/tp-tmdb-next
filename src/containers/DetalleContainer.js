@@ -3,13 +3,14 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import DetalleMovie from '@/components/DetalleMovie'
-
+import LoadingMessage from '@/components/LoadingMessage';
+import ErrorMessage from '@/components/ErrorMessage';
 
 const DetalleContainer = ({ id }) => {
 
   const [item, setItem] = useState({});
   const [loading, setLoading] = useState(true);
-  const [notFound, setNotFound] = useState(false);
+  const [error, setError] = useState(null);
 
   const handleGetMovie = async () => {
     try {
@@ -19,7 +20,9 @@ const DetalleContainer = ({ id }) => {
       setLoading(false);
     } catch (error) {
       console.log(error);
-      setNotFound(true);
+      setError("No se pudieron cargar los datos.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -28,15 +31,10 @@ const DetalleContainer = ({ id }) => {
   }, []);
   
   return (
-   <div>
-      {notFound && (
-        <div>
-          <h2>NOT FOUND</h2>
-        </div>
-        )}
-      {loading && <div className='bg-[#000105] w-full min-h-screen flex items-center justify-center'><p className='text-[2em] font-[Oswald] text-white'>
-                    Loading...</p></div>}
-      {!loading && <DetalleMovie item={item}/>}
+    <div>
+      {loading && <LoadingMessage />}
+      {error && <ErrorMessage />}
+      {!loading && !error && <DetalleMovie item={item} />}
     </div>
   );
 };
