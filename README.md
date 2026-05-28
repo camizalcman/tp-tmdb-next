@@ -17,8 +17,8 @@ Aplicación web para explorar películas en tendencia, populares, mejor puntuada
 3. Crear un archivo .env.local en la raíz del proyecto con la API key de TMDB 
 
 ## Instrucciones para ejecutar el proyecto 
-npm run dev 
-Luego abrir http://localhost:3000 en el navegador. 
+1. Ejecutar npm run dev 
+2. Luego abrir http://localhost:3000 en el navegador. 
 
 ## Endpoints utilizados 
 - Tendencias: /trending/movie/day
